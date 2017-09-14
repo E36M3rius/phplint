@@ -113,7 +113,7 @@ class Linter
                 unset($running[$filename]);
                 if ($lintProcess->hasSyntaxError()) {
                     $processCallback('error', $filename);
-                    $errors[$filename] = array_merge(['file' => $filename], $lintProcess->getSyntaxError());
+                    $errors[$filename] = array_merge(array('file' => $filename), $lintProcess->getSyntaxError());
                 } else {
                     $newCache[$filename] = md5_file($filename);
                     $processCallback('ok', $filename);
