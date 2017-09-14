@@ -354,13 +354,13 @@ class LintCommand extends Command
             return $columns - 1;
         }
 
-        if (function_exists('shell_exec') && preg_match('#\d+ (\d+)#', shell_exec('tty -F /dev/tty size'), $match) === 1) {
+        if (function_exists('shell_exec') && preg_match('#\d+ (\d+)#', shell_exec('stty size'), $match) === 1) {
             if ((int) $match[1] > 0) {
                 return (int) $match[1];
             }
         }
 
-        if (function_exists('shell_exec') && preg_match('#columns = (\d+);#', shell_exec('tty -F /dev/tty'), $match) === 1) {
+        if (function_exists('shell_exec') && preg_match('#columns = (\d+);#', shell_exec('stty'), $match) === 1) {
             if ((int) $match[1] > 0) {
                 return (int) $match[1];
             }
