@@ -219,7 +219,7 @@ class LintCommand extends Command
             }
         });
 
-        return $linter->lint([], $cache);
+        return $linter->lint(array(), $cache);
     }
 
     /**
