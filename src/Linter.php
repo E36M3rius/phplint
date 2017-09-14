@@ -29,12 +29,12 @@ class Linter
     /**
      * @var array
      */
-    private $files = [];
+    private $files = array();
 
     /**
      * @var array
      */
-    private $cache = [];
+    private $cache = array();
 
     /**
      * @var string|array
@@ -63,7 +63,7 @@ class Linter
      * @param array        $excludes
      * @param array        $extensions
      */
-    public function __construct($path, array $excludes = [], array $extensions = ['php'])
+    public function __construct($path, array $excludes = array(), array $extensions = array('php'))
     {
         $this->path = $path;
         $this->excludes = $excludes;
@@ -78,7 +78,7 @@ class Linter
      *
      * @return array
      */
-    public function lint($files = [], $cache = true)
+    public function lint($files = array(), $cache = true)
     {
         if (empty($files)) {
             $files = $this->getFiles();
@@ -87,9 +87,9 @@ class Linter
         $processCallback = is_callable($this->processCallback) ? $this->processCallback : function () {
         };
 
-        $errors = [];
-        $running = [];
-        $newCache = [];
+        $errors = array();
+        $running = array();
+        $newCache = array();
         $phpbin = PHP_SAPI == 'cli' ? PHP_BINARY : PHP_BINDIR.'/php';
 
         while (!empty($files) || !empty($running)) {
@@ -131,12 +131,12 @@ class Linter
      *
      * @param array $cache
      */
-    public function setCache($cache = [])
+    public function setCache($cache = array())
     {
         if (is_array($cache)) {
             $this->cache = $cache;
         } else {
-            $this->cache = [];
+            $this->cache = array();
         }
     }
 

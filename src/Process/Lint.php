@@ -63,9 +63,9 @@ class Lint extends Process
             $message = 'Unknown';
         }
 
-        return [
+        return array(
             'error' => $matched ? "{$match['error']} in line {$match['line']}" : $message,
             'line' => $matched ? $match['line'] : 0,
-        ];
+        );
     }
 }
