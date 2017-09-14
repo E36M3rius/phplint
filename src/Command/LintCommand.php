@@ -209,7 +209,7 @@ class LintCommand extends Command
 
             if ($i && $i % $maxColumns === 0) {
                 $percent = floor(($i / $fileCount) * 100);
-                $output->writeln(str_pad(" {$i} / {$fileCount} ({$percent}%)", 18, ' ', STR_PAD_LEFT));
+                // $output->writeln(str_pad(" {$i} / {$fileCount} ({$percent}%)", 18, ' ', STR_PAD_LEFT));
             }
             ++$i;
             if ($verbosity >= OutputInterface::VERBOSITY_VERBOSE) {
